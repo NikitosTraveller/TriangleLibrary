@@ -1,4 +1,8 @@
-﻿namespace TriangleLibrary
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace TriangleLibrary
 {
     public static class Triangle
     {
@@ -24,7 +28,18 @@
                 return 0;
             }
 
+            double[] sideSquares = new double[3] { Math.Pow(side1, 2), Math.Pow(side2, 2), Math.Pow(side3, 2) };
+            Array.Sort(sideSquares);
 
+            if (sideSquares[2] < sideSquares[0] + sideSquares[1])
+            {
+                return 2;
+            }
+
+            if (sideSquares[2] > sideSquares[0] + sideSquares[1])
+            {
+                return 3;
+            }
 
             return 1;
         }

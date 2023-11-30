@@ -12,7 +12,7 @@ namespace TriangleLibrary.Tests
         [Test]
         public void Test1()
         {
-            TriangleType triangleType = (TriangleType)Triangle.GetTriangleType(-1, 2, 3);
+            TriangleType triangleType = (TriangleType)Triangle.GetTriangleType(5, 2, 6);
             Assert.IsTrue(triangleType == TriangleType.INVALID);
         }
     }

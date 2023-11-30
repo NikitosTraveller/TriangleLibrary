@@ -8,7 +8,7 @@ namespace TriangleLibrary
     {
         /// <summary>
         /// 0 - invalid
-        /// 1- right
+        /// 1 - right
         /// 2 - acute
         /// 3 - obtuse
         /// </summary>
@@ -28,20 +28,27 @@ namespace TriangleLibrary
                 return 0; // треугольник не существует
             }
 
-            double[] sideSquares = new double[3] { Math.Pow(side1, 2), Math.Pow(side2, 2), Math.Pow(side3, 2) };
-            Array.Sort(sideSquares);
-
-            if (sideSquares[2] < sideSquares[0] + sideSquares[1])
+            try
             {
-                return 2; // остроугольный треугольник
-            }
+                double[] sideSquares = new double[3] { Math.Pow(side1, 2), Math.Pow(side2, 2), Math.Pow(side3, 2) };
+                Array.Sort(sideSquares);
 
-            if (sideSquares[2] > sideSquares[0] + sideSquares[1])
+                if (sideSquares[2] < sideSquares[0] + sideSquares[1])
+                {
+                    return 2; // остроугольный треугольник
+                }
+
+                if (sideSquares[2] > sideSquares[0] + sideSquares[1])
+                {
+                    return 3; // тупоугольный треугольник
+                }
+
+                return 1; // прямоугольный треугольник
+            }
+            catch(OverflowException ex)
             {
-                return 3; // тупоугольный треугольник
+                return 0;
             }
-
-            return 1; // прямоугольный треугольник
         }
     }
 }

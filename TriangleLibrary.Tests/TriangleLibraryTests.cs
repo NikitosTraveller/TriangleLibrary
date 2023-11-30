@@ -1,3 +1,5 @@
+using TriangleLibrary.Entities;
+
 namespace TriangleLibrary.Tests
 {
     public class Tests
@@ -10,7 +12,8 @@ namespace TriangleLibrary.Tests
         [Test]
         public void Test1()
         {
-            Assert.Pass();
+            TriangleType triangleType = (TriangleType)Triangle.GetTriangleType(-1, 2, 3);
+            Assert.IsTrue(triangleType == TriangleType.INVALID);
         }
     }
 }

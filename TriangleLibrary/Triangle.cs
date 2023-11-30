@@ -25,7 +25,7 @@ namespace TriangleLibrary
                 side1 + side3 <= side2 || 
                 side2 + side3 <= side1)
             {
-                return 0;
+                return 0; // треугольник не существует
             }
 
             double[] sideSquares = new double[3] { Math.Pow(side1, 2), Math.Pow(side2, 2), Math.Pow(side3, 2) };
@@ -33,15 +33,15 @@ namespace TriangleLibrary
 
             if (sideSquares[2] < sideSquares[0] + sideSquares[1])
             {
-                return 2;
+                return 2; // остроугольный треугольник
             }
 
             if (sideSquares[2] > sideSquares[0] + sideSquares[1])
             {
-                return 3;
+                return 3; // тупоугольный треугольник
             }
 
-            return 1;
+            return 1; // прямоугольный треугольник
         }
     }
 }
